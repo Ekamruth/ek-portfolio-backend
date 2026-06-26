@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/gekam/Desktop/AI/projects/ai-resume-builder/knowledge/achievements/**)",
+      "Read(//c/Users/gekam/Desktop/AI/projects/ai-resume-builder/knowledge/experience/**)",
+      "Bash(\"c:\\\\Users\\\\gekam\\\\Desktop\\\\projects\\\\ek-portfolio-backend\\\\.venv\\\\Scripts\\\\pip.exe\" list *)",
+      "Bash(Select-String -Pattern \"langchain|chroma|hugging\")"
+    ]
+  }
+}

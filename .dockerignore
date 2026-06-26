@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.gitignore
+.claude/
+.vscode/
+.python-version
+README.md
+chroma_db/
+app/chroma/
+app/rag/chroma/
+app/knowledge/chroma/
