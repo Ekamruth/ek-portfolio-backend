@@ -3,6 +3,7 @@ services:
     name: ek-portfolio-backend
     runtime: docker
     plan: free
+    region: singapore
     dockerfilePath: ./Dockerfile
     healthCheckPath: /docs
     envVars:
