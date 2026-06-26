@@ -1,3 +1,7 @@
+# IDE / tooling
+.vscode/
+.claude/
+
 # Environment
 .env
 
