@@ -11,14 +11,13 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen
 
+ENV PATH="/app/.venv/bin:$PATH"
 ENV HF_HOME=/app/.cache/huggingface
+ENV PYTHONUNBUFFERED=1
+ENV ANONYMIZED_TELEMETRY=False
 
-RUN uv run python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
 
 COPY app/ ./app/
 
-EXPOSE 8000
-
-ENV PYTHONUNBUFFERED=1
-
-CMD ["sh", "-c", "/app/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
