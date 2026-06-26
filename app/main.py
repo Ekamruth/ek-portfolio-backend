@@ -1,4 +1,5 @@
 import uvicorn
+import threading
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,8 +11,7 @@ from app.rag.embedder import ingest_documents
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    print("Building knowledge base...")
-    ingest_documents()
+    threading.Thread(target=ingest_documents, daemon=True).start()
     yield
 
 app = FastAPI(title="EK Portfolio Backend", lifespan=lifespan)
