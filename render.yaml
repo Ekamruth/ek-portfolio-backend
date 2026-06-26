@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /docs
+    healthCheckPath: /health
     envVars:
       - key: CORS_ORIGINS
         value: https://ekamruth.github.io/ek-portfolio/
